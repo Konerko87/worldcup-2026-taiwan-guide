@@ -221,12 +221,22 @@
       gap: 14px;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
 
     .match-card.recommended {
       background:
         linear-gradient(135deg, rgba(15,107,81,.12), rgba(180,122,31,.10) 48%, rgba(255,253,248,.9));
       box-shadow: var(--shadow);
+    }
+
+    .match-card:hover,
+    .match-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(15, 107, 81, .38);
+      box-shadow: 0 18px 54px rgba(15, 31, 44, .14);
+      outline: none;
     }
 
     .match-top {
@@ -298,6 +308,19 @@
     .venue {
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .open-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #151515;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 850;
     }
 
     .match-people {
@@ -454,6 +477,161 @@
       background: rgba(255,255,255,.55);
     }
 
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(19, 19, 17, .48);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-panel {
+      width: min(1040px, 100%);
+      max-height: min(88vh, 920px);
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.5);
+      background: var(--paper);
+      box-shadow: 0 28px 90px rgba(0,0,0,.28);
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,253,248,.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal-kicker {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .close-button {
+      appearance: none;
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .46fr);
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .detail-main,
+    .detail-side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .detail-block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.68);
+      padding: 14px;
+    }
+
+    .detail-block h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .detail-block p {
+      margin: 0;
+      color: #36312b;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #36312b;
+    }
+
+    .detail-list li + li { margin-top: 6px; }
+
+    .detail-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .detail-meta .stat {
+      min-height: unset;
+      background: rgba(240,239,232,.72);
+    }
+
+    .detail-person {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: rgba(255,255,255,.68);
+    }
+
+    .detail-person .avatar {
+      width: 54px;
+      height: 54px;
+    }
+
+    .detail-person b {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .detail-person span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .share-link {
+      word-break: break-all;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 24px 0 34px;
@@ -471,6 +649,7 @@
         align-items: start;
       }
       .list-card .match-top { min-height: 0; }
+      .modal-body { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
@@ -482,6 +661,11 @@
       .match-card { min-height: 280px; }
       .tabs { padding: 8px 0; }
       .tab-button { flex: 1; text-align: center; }
+      .modal { padding: 8px; align-items: stretch; }
+      .modal-panel { max-height: 100%; border-radius: 8px; }
+      .modal-head { padding: 14px; }
+      .modal-body { padding: 14px; }
+      .detail-meta { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -544,6 +728,19 @@
       賽程與分組以 <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera 2026/5/7 完整賽程</a> 為主，並參考 <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA 官方賽程頁</a>。球員照片使用 Wikimedia/Wikipedia 公開圖片連結；照片版權依各原始頁面標示為準。球員為觀賽焦點候選，實際出賽以最終名單與先發為準。
     </aside>
   </main>
+
+  <div class="modal" id="match-modal" aria-hidden="true">
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker" id="modal-kicker"></p>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <button class="close-button" type="button" id="modal-close" aria-label="關閉">×</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </section>
+  </div>
 
   <footer class="shell">
     本頁是朋友觀賽用整理，不是 FIFA 官方網站。淘汰賽對戰與最終球員名單會隨賽事進行更新。
@@ -1245,10 +1442,123 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
       </div>`;
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function shareUrlFor(match) {
+      return `${location.origin}${location.pathname}#match-${match.id}`;
+    }
+
+    function teamNames(match) {
+      if (!match.title.includes(" vs ")) return [];
+      return match.title.split(" vs ");
+    }
+
+    function professionalDetail(match, insight) {
+      const teams = teamNames(match);
+      if (match.stage !== "Group Stage" || teams.length !== 2) {
+        return {
+          label: "淘汰賽導讀",
+          intro: "這場的對戰雙方要等小組賽結束後才會確定，但賽程價值很高：淘汰賽不像小組賽可以容錯，先失球的一方會被迫打開陣型，後段比賽容易出現更明顯的空間。",
+          tactical: "先看兩件事：一是雙方是否保守開局，二是替補席能不能改變節奏。進入 60 分鐘後，定位球、體能下降和黃牌風險通常會比控球率更重要。",
+          bullets: [
+            "前 20 分鐘：觀察雙方是否願意高壓，還是先避免失誤。",
+            "60 分鐘後：換人會直接影響攻守平衡，尤其是速度型替補。",
+            "如果進入延長賽：定位球、防線溝通與門將處理高球會變得非常關鍵。"
+          ]
+        };
+      }
+
+      const [home, away] = teams;
+      const homeInfo = teamInfo(home);
+      const awayInfo = teamInfo(away);
+      const title = match.title;
+      const specific = {
+        "Brazil vs Morocco": {
+          intro: "這是小組賽最適合拿來看邊路攻防的一場。巴西的進攻爆點多半會從左路開始，摩洛哥則有足夠速度和紀律把那一路變成真正的對抗。",
+          tactical: "巴西若把 Vinicius 放在左側，他會反覆攻擊 Hakimi 身後與中衛之間的縫隙；摩洛哥不只要守，還會利用 Hakimi 前插反打巴西左路。Neymar 若進入名單，更多是牽動防守注意力與話題性。",
+          bullets: [
+            "看 Vinicius 拿球時，摩洛哥是單防還是立刻第二人包夾。",
+            "看 Hakimi 前插後，巴西左路回防是否及時。",
+            "如果 Neymar 上場，觀察他是靠近中路串聯，還是留在邊路吸引防守。"
+          ]
+        },
+        "France vs Senegal": {
+          intro: "這場不是單純強隊打弱隊，而是速度、身體與防線協防的直接碰撞。法國能用一次轉換打穿對手，塞內加爾也有能力把比賽變得非常硬。",
+          tactical: "法國最危險的是搶下球後第一時間找 Mbappe 的身後跑動；塞內加爾要靠 Koulibaly 的領防、邊後衛協防和中場回追，把法國的衝刺路線切斷。",
+          bullets: [
+            "看 Mbappe 第一次啟動時，塞內加爾中衛是否先退半步保護身後。",
+            "看法國中場能不能快速把球轉到弱邊。",
+            "看塞內加爾定位球是否能讓法國防線出現混亂。"
+          ]
+        },
+        "Norway vs France": {
+          intro: "這場是招牌球星對決。Haaland 和 Mbappe 的共同點是不用大量觸球也能決定比賽，所以後衛的站位品質會比控球率更值得看。",
+          tactical: "挪威會想把球送到禁區，讓 Haaland 和中衛比身位；法國則會利用 Mbappe 的反跑攻擊挪威高大防線轉身慢的弱點。兩隊都可能在很少機會下進球。",
+          bullets: [
+            "看 Haaland 是否能卡住中衛，逼法國用第二人協防。",
+            "看 Saliba 和法國防線是否敢把防線推高。",
+            "看挪威壓上後，Mbappe 身後反跑能不能直接形成單刀。"
+          ]
+        },
+        "England vs Croatia": {
+          intro: "這場最有意思的是節奏之爭。英格蘭想靠年輕中場和邊路速度把比賽推快，克羅埃西亞會想把球留住，讓比賽變成自己熟悉的慢節奏。",
+          tactical: "Bellingham 的前插會逼克羅埃西亞後腰和中衛做選擇；Modric 則會用接球角度和轉移，把英格蘭壓迫帶離中路。誰能控制節奏，誰就會讓對方踢得不舒服。",
+          bullets: [
+            "看 Bellingham 無球前插時，克羅埃西亞誰跟人、誰補位。",
+            "看 Modric 接球前是否已經掃描好下一腳轉移方向。",
+            "看英格蘭邊路能不能把克羅埃西亞老將拉到大範圍來回跑。"
+          ]
+        },
+        "Uruguay vs Spain": {
+          intro: "這是技術和強度的對照。西班牙會用控球和短傳慢慢拆，烏拉圭會用 Valverde 的跑動和身體對抗讓西班牙沒辦法舒服傳球。",
+          tactical: "西班牙的關鍵是 Pedri 如何在中路找到接球角度，並把球交到 Yamal 能一對一的位置；烏拉圭則會用中場壓迫和 Araujo 的防守範圍去切斷邊路連線。",
+          bullets: [
+            "看西班牙是否能把烏拉圭中場拉開，讓 Pedri 在半空間接球。",
+            "看 Yamal 被貼身後，還能不能製造傳中或倒三角。",
+            "看 Valverde 是否能用跑動直接打斷西班牙的控球節奏。"
+          ]
+        },
+        "Argentina vs Algeria": {
+          intro: "阿根廷的比賽核心通常不是速度，而是節奏。Messi 只要能在禁區前舒服轉身，阿根廷就能把一個普通回合變成威脅。",
+          tactical: "阿爾及利亞會盡量壓縮中路，不讓 Messi 在弧頂前接球；阿根廷要靠邊路拉寬、後腰前插和快速撞牆，把密集防線撕出第一個縫。",
+          bullets: [
+            "看 Messi 接球時，阿爾及利亞是否立刻有第二人封傳球線。",
+            "看阿根廷邊路是否能把防線拉寬，而不是全部擠在中路。",
+            "如果久攻不下，定位球和禁區外遠射會變得重要。"
+          ]
+        }
+      }[title];
+
+      if (specific) {
+        return {
+          label: match.recommended ? "推薦場專業導讀" : "單場專業導讀",
+          ...specific
+        };
+      }
+
+      return {
+        label: match.recommended ? "推薦場專業導讀" : "單場專業導讀",
+        intro: `${match.titleZh} 的核心不只是比分，而是 ${homeInfo.edge} 能不能壓過 ${awayInfo.edge}。這種小組賽通常前 15 分鐘會先試探，第一個進球會大幅改變比賽形狀。`,
+        tactical: `${teamZh[home] || home} 這邊要看：${homeInfo.brief} ${teamZh[away] || away} 這邊要看：${awayInfo.brief} 若雙方都不急，定位球與轉換速度會成為最容易打破平衡的地方。`,
+        bullets: [
+          `先看 ${teamZh[home] || home} 是否能把自己的強項「${homeInfo.edge}」打出來。`,
+          `再看 ${teamZh[away] || away} 對「${awayInfo.edge}」的依賴是否會被對手限制。`,
+          "最後看第一個換人：如果教練提早換攻擊手，代表這場已經從試探進入搶分。"
+        ]
+      };
+    }
+
     function card(match, list = false) {
       const insight = insightForMatch(match);
       return `
-        <article class="match-card ${match.recommended ? "recommended" : ""} ${list ? "list-card" : ""}" id="match-${match.id}">
+        <article class="match-card ${match.recommended ? "recommended" : ""} ${list ? "list-card" : ""}" id="card-${list ? "all" : "recommended"}-${match.id}" data-match-id="${match.id}" role="button" tabindex="0" aria-label="查看 ${match.titleZh} 專業介紹">
           <div class="match-top">
             ${badge(match)}
             <span class="match-no">#${String(match.id).padStart(3, "0")}</span>
@@ -1265,9 +1575,90 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
             <div class="watch-line"><b>對位：</b>${insight.matchup}</div>
             <div><b>看點：</b>${insight.why}</div>
             <div class="venue">${match.venue}</div>
+            <div class="open-hint">點進專業介紹</div>
           </div>
         </article>
       `;
+    }
+
+    function detailPeople(people) {
+      const unique = uniquePeople(people);
+      if (!unique.length) {
+        return `<div class="detail-block"><h3>焦點人物</h3><p>這場沒有單一巨星主導，重點放在整體隊形、定位球和第一個進球後的調整。</p></div>`;
+      }
+      return `<div class="detail-block">
+        <h3>焦點人物</h3>
+        <div class="detail-side">
+          ${unique.map(key => {
+            const profile = playerProfiles[key];
+            return `<div class="detail-person">
+              <span class="avatar"><img src="${profile.image}" alt="${profile.name} 真實照片" loading="lazy"></span>
+              <span><b>${profile.name}</b><span>${profile.team}｜${profile.role}</span></span>
+            </div>`;
+          }).join("")}
+        </div>
+      </div>`;
+    }
+
+    function openMatchDetail(matchId, updateHash = true) {
+      const match = matches.find(item => item.id === Number(matchId));
+      if (!match) return;
+      const insight = insightForMatch(match);
+      const detail = professionalDetail(match, insight);
+      const modal = document.getElementById("match-modal");
+      const modalBody = document.getElementById("modal-body");
+      document.getElementById("modal-kicker").textContent = `${stageZh(match.stage)}｜#${String(match.id).padStart(3, "0")}`;
+      document.getElementById("modal-title").textContent = match.titleZh;
+      modalBody.innerHTML = `
+        <div class="detail-main">
+          <div class="detail-meta">
+            <div class="stat"><b>${taipeiFormatter.format(new Date(match.utc))}</b><span>台灣開球時間</span></div>
+            <div class="stat"><b>${match.group ? `Group ${match.group}` : stageZh(match.stage)}</b><span>${match.venue}</span></div>
+          </div>
+          <div class="detail-block">
+            <h3>${escapeHtml(detail.label)}</h3>
+            <p>${escapeHtml(detail.intro)}</p>
+          </div>
+          <div class="detail-block">
+            <h3>戰術焦點</h3>
+            <p>${escapeHtml(detail.tactical)}</p>
+          </div>
+          <div class="detail-block">
+            <h3>關鍵對位</h3>
+            <p>${escapeHtml(insight.matchup)}</p>
+          </div>
+          <div class="detail-block">
+            <h3>觀賽切入點</h3>
+            <ul class="detail-list">${detail.bullets.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </div>
+        </div>
+        <div class="detail-side">
+          ${detailPeople(insight.people)}
+          <div class="detail-block">
+            <h3>適合誰看</h3>
+            <p>${match.recommended ? "適合揪朋友一起看，因為有明確球星或對位故事，不需要很懂足球也能抓到主線。" : "適合想補完整賽程、追小組排名，或支持其中一隊的朋友。"}</p>
+          </div>
+          <div class="detail-block">
+            <h3>分享這場</h3>
+            <a class="share-link" href="#match-${match.id}">${escapeHtml(shareUrlFor(match))}</a>
+          </div>
+        </div>
+      `;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      document.getElementById("modal-close").focus();
+      if (updateHash) history.replaceState(null, "", `#match-${match.id}`);
+    }
+
+    function closeMatchDetail(clearHash = true) {
+      const modal = document.getElementById("match-modal");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (clearHash && location.hash.startsWith("#match-")) {
+        history.replaceState(null, "", location.pathname + location.search);
+      }
     }
 
     function renderRecommended() {
@@ -1340,11 +1731,40 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
       });
     });
 
+    document.addEventListener("click", event => {
+      const cardEl = event.target.closest(".match-card[data-match-id]");
+      if (cardEl) openMatchDetail(cardEl.dataset.matchId);
+    });
+
+    document.addEventListener("keydown", event => {
+      if ((event.key === "Enter" || event.key === " ") && event.target.closest(".match-card[data-match-id]")) {
+        event.preventDefault();
+        openMatchDetail(event.target.closest(".match-card[data-match-id]").dataset.matchId);
+      }
+      if (event.key === "Escape" && document.getElementById("match-modal").classList.contains("open")) {
+        closeMatchDetail();
+      }
+    });
+
+    document.getElementById("modal-close").addEventListener("click", () => closeMatchDetail());
+    document.getElementById("match-modal").addEventListener("click", event => {
+      if (event.target.id === "match-modal") closeMatchDetail();
+    });
+
+    window.addEventListener("hashchange", () => {
+      const hashMatch = location.hash.match(/^#match-(\d+)$/);
+      if (hashMatch) openMatchDetail(hashMatch[1], false);
+      else closeMatchDetail(false);
+    });
+
     searchInput.addEventListener("input", renderAll);
 
     renderRecommended();
     renderFilters();
     renderAll();
+
+    const initialHash = location.hash.match(/^#match-(\d+)$/);
+    if (initialHash) openMatchDetail(initialHash[1], false);
   </script>
 </body>
 </html>
