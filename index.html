@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026 世界盃台灣觀賽指南</title>
-  <meta name="description" content="2026 世界盃台灣時間賽程、推薦場次、看點與球星介紹。">
+  <meta name="description" content="2026 世界盃台灣時間賽程、推薦場次、對位看點與球星照片。">
   <meta property="og:title" content="2026 世界盃台灣觀賽指南">
-  <meta property="og:description" content="推薦場、每一場賽程、台灣時間、看點與球星真圖。">
+  <meta property="og:description" content="推薦場、每一場賽程、台灣時間、對位看點與球星真圖。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://konerko87.github.io/worldcup-2026-taiwan-guide/">
   <link rel="canonical" href="https://konerko87.github.io/worldcup-2026-taiwan-guide/">
@@ -206,7 +206,6 @@
     }
 
     .match-card,
-    .player-card,
     .source-box {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -216,7 +215,7 @@
 
     .match-card {
       padding: 16px;
-      min-height: 236px;
+      min-height: 320px;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -285,9 +284,78 @@
       margin: auto 0 0;
       color: #38322c;
       font-size: 14px;
+      display: grid;
+      gap: 7px;
     }
 
     .watch b { color: var(--ink); }
+
+    .watch-line {
+      border-top: 1px solid rgba(21, 21, 21, .08);
+      padding-top: 8px;
+    }
+
+    .venue {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .match-people {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .person {
+      min-width: 0;
+      display: inline-grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      max-width: 188px;
+      border: 1px solid rgba(21, 21, 21, .09);
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      padding: 4px 9px 4px 4px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--paper-2);
+      box-shadow: 0 0 0 1px rgba(21,21,21,.10);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person span {
+      display: block;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 850;
+      color: #2f2a25;
+    }
+
+    .person small {
+      display: block;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
 
     .controls {
       display: grid;
@@ -334,54 +402,21 @@
     .list-card {
       min-height: unset;
       display: grid;
-      grid-template-columns: 92px minmax(180px, 1fr) minmax(160px, .8fr) minmax(220px, 1fr);
-      align-items: center;
+      grid-template-columns: 92px minmax(210px, .85fr) minmax(260px, 1.35fr);
+      grid-template-areas:
+        "top main people"
+        "top watch watch";
+      align-items: start;
       gap: 14px;
       padding: 13px 14px;
     }
 
+    .list-card .match-top { grid-area: top; display: block; }
+    .list-card .match-main { grid-area: main; }
+    .list-card .match-people { grid-area: people; }
+    .list-card .watch { grid-area: watch; }
     .list-card .match-title { font-size: 18px; }
     .list-card .watch { margin: 0; }
-
-    .players {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .player-card {
-      overflow: hidden;
-      background: var(--paper);
-    }
-
-    .player-photo {
-      aspect-ratio: 4 / 3;
-      background: var(--paper-2);
-      overflow: hidden;
-    }
-
-    .player-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .player-body {
-      padding: 14px;
-    }
-
-    .player-body h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
-      letter-spacing: 0;
-    }
-
-    .player-body p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
 
     .tagline {
       display: flex;
@@ -428,10 +463,11 @@
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .grid, .players { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .controls { grid-template-columns: 1fr; }
       .list-card {
         grid-template-columns: 1fr;
+        grid-template-areas: "top" "main" "people" "watch";
         align-items: start;
       }
       .list-card .match-top { min-height: 0; }
@@ -441,9 +477,9 @@
       .shell { width: min(100% - 22px, 1180px); }
       header { padding-top: 18px; }
       .topbar { align-items: flex-start; flex-direction: column; }
-      .hero-meta, .grid, .players { grid-template-columns: 1fr; }
+      .hero-meta, .grid { grid-template-columns: 1fr; }
       .section-head { display: block; }
-      .match-card { min-height: 214px; }
+      .match-card { min-height: 280px; }
       .tabs { padding: 8px 0; }
       .tab-button { flex: 1; text-align: center; }
     }
@@ -458,7 +494,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div>
         <h1 id="page-title">世界盃<br>朋友觀賽指南</h1>
-        <p class="lede">不用研究半天，直接看哪些場最值得約、每一場台灣時間幾點、有哪些球星和話題人物可以聊。</p>
+        <p class="lede">不用研究半天，直接看哪些場最值得約、每一場台灣時間幾點、這場真正要看哪個對位。</p>
       </div>
       <div class="hero-meta" aria-label="賽事摘要">
         <div class="stat"><b>104</b><span>總場次，含小組賽與淘汰賽</span></div>
@@ -481,18 +517,10 @@
       <div class="section-head">
         <div>
           <h2>先約這幾場</h2>
-          <p>以台灣朋友好聊、球星辨識度、對戰張力、時間相對能接受來排。深夜場仍保留，因為有些就是世界盃主菜。</p>
+          <p>每張卡直接放這場的焦點人物、攻防對位和看點。深夜場仍保留，因為有些就是世界盃主菜。</p>
         </div>
       </div>
       <div class="grid" id="recommended-grid"></div>
-
-      <div class="section-head" style="margin-top:34px">
-        <div>
-          <h2>球星與話題人物</h2>
-          <p>名單以觀賽辨識度整理；最終參賽名單仍以各國足協與 FIFA 公告為準。</p>
-        </div>
-      </div>
-      <div class="players" id="players-grid"></div>
     </section>
 
     <section class="panel" id="panel-all" role="tabpanel" aria-labelledby="tab-all">
@@ -513,7 +541,7 @@
 
     <aside class="source-box">
       <strong>資料來源：</strong>
-      賽程與分組以 <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera 2026/5/7 完整賽程</a> 為主，並參考 <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA 官方賽程頁</a>。球員照片使用 Wikimedia/Wikipedia 公開圖片連結；照片版權依各原始頁面標示為準。
+      賽程與分組以 <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera 2026/5/7 完整賽程</a> 為主，並參考 <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA 官方賽程頁</a>。球員照片使用 Wikimedia/Wikipedia 公開圖片連結；照片版權依各原始頁面標示為準。球員為觀賽焦點候選，實際出賽以最終名單與先發為準。
     </aside>
   </main>
 
@@ -741,88 +769,316 @@ Bronze medal match at 5pm (21:00 GMT) - Miami Stadium, Miami, US
 Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
 `;
 
-    const recommendedNotes = {
-      "Mexico vs South Africa": "開幕戰，墨西哥主場氣氛最滿。朋友不熟球也能看儀式感和第一場熱度。",
-      "Brazil vs Morocco": "巴西星味對上 2022 四強摩洛哥。Vinicius 是核心，Neymar 則是話題人物。",
-      "Netherlands vs Japan": "技術與紀律感都高，日本隊強度夠，適合想看亞洲隊挑戰歐洲強權。",
-      "France vs Senegal": "Mbappe 領銜的法國碰上身體素質很硬的非洲強隊，強度會很高。",
-      "Argentina vs Algeria": "衛冕軍登場，Messi 只要入選就是全世界焦點。",
-      "Portugal vs DRC": "Cristiano Ronaldo 的最後幾屆大賽話題，葡萄牙也有很完整的豪華陣容。",
-      "England vs Croatia": "英格蘭人氣高，Croatia 大賽經驗厚。Bellingham 對 Modric 這條線很好聊。",
-      "Spain vs Cape Verde": "西班牙新世代登場，Lamine Yamal 是最容易讓朋友記住的超新星。",
-      "Argentina vs Austria": "小組第二輪，通常開始牽動出線壓力；阿根廷人氣保證。",
-      "England vs Ghana": "英格蘭球星多，迦納速度與對抗性高，適合週末前後揪人看。",
-      "Norway vs France": "Haaland 對 Mbappe 等級的招牌對決，純看球星也值得。",
-      "Uruguay vs Spain": "南美硬度對西班牙控球，新舊世代都很有看點。",
-      "Colombia vs Portugal": "葡萄牙小組最有分量的一場，Colombia 的反擊與對抗會讓比賽不無聊。",
-      "Jordan vs Argentina": "阿根廷壓軸小組賽，可能牽動排名，也可能是看 Messi 的輕鬆場。"
-    };
+    const featuredMatches = [
+      "Mexico vs South Africa",
+      "Brazil vs Morocco",
+      "Netherlands vs Japan",
+      "France vs Senegal",
+      "Argentina vs Algeria",
+      "Portugal vs DRC",
+      "England vs Croatia",
+      "Spain vs Cape Verde",
+      "Argentina vs Austria",
+      "England vs Ghana",
+      "Norway vs France",
+      "Uruguay vs Spain",
+      "Colombia vs Portugal",
+      "Jordan vs Argentina"
+    ];
 
-    const players = [
-      {
+    const playerProfiles = {
+      messi: {
         name: "Lionel Messi",
         team: "阿根廷",
-        tags: ["傳奇", "衛冕軍", "話題保證"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg/960px-Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg",
-        text: "就算已經不是體能巔峰，只要進入名單就是世界盃最大看點之一。朋友不熟足球，也會知道他是誰。"
+        role: "前場自由人",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg/960px-Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg"
       },
-      {
+      mbappe: {
         name: "Kylian Mbappe",
         team: "法國",
-        tags: ["速度", "門面", "冠軍熱門"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Picture_with_Mbapp%C3%A9_%28cropped_and_rotated%29.jpg",
-        text: "法國最容易決定比賽的人，反擊速度和禁區終結力都是頂級。看法國，先看他。"
+        role: "速度型前鋒",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Picture_with_Mbapp%C3%A9_%28cropped_and_rotated%29.jpg"
       },
-      {
+      ronaldo: {
         name: "Cristiano Ronaldo",
         team: "葡萄牙",
-        tags: ["巨星", "最後舞台", "流量"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/President_Donald_Trump_meets_with_Cristiano_Ronaldo_in_the_Oval_Office_%2854933344262%29_%28cropped_and_rotated%29.jpg",
-        text: "競技角色可能不再像巔峰期那麼吃重，但世界盃話題性仍然爆表；葡萄牙陣容本身也很強。"
+        role: "禁區話題人物",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/President_Donald_Trump_meets_with_Cristiano_Ronaldo_in_the_Oval_Office_%2854933344262%29_%28cropped_and_rotated%29.jpg"
       },
-      {
+      bruno: {
+        name: "Bruno Fernandes",
+        team: "葡萄牙",
+        role: "傳球核心",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_%28cropped%29.jpg/330px-Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_%28cropped%29.jpg"
+      },
+      bellingham: {
         name: "Jude Bellingham",
         team: "英格蘭",
-        tags: ["中場核心", "年輕門面", "英格蘭"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg/960px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg",
-        text: "英格蘭新世代的代表人物，能進球也能掌控節奏，是英格蘭能不能走遠的關鍵。"
+        role: "中場前插",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg/960px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg"
       },
-      {
+      vinicius: {
         name: "Vinicius Junior",
         team: "巴西",
-        tags: ["爆點", "邊路", "巴西核心"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/c/c6/2023_05_06_Final_de_la_Copa_del_Rey_-_52879242230_%28cropped%29.jpg",
-        text: "巴西最直接的突破點，速度和一對一會讓比賽突然變熱。朋友只看精華也會注意到他。"
+        role: "左路爆點",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c6/2023_05_06_Final_de_la_Copa_del_Rey_-_52879242230_%28cropped%29.jpg"
       },
-      {
+      neymar: {
         name: "Neymar",
         team: "巴西",
-        tags: ["話題人物", "需看最終名單", "聊天素材"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg",
-        text: "現在比較像流量與話題中心，不一定是巴西最可靠的競技核心；但只要名字出現，討論度一定高。"
+        role: "話題人物",
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg"
       },
-      {
+      hakimi: {
+        name: "Achraf Hakimi",
+        team: "摩洛哥",
+        role: "右後衛",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Achraf_Hakimi_%28cropped%29.jpg/330px-Achraf_Hakimi_%28cropped%29.jpg"
+      },
+      vandijk: {
+        name: "Virgil van Dijk",
+        team: "荷蘭",
+        role: "中衛指揮",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/330px-20160604_AUT_NED_8876_%28cropped%29.jpg"
+      },
+      mitoma: {
+        name: "Kaoru Mitoma",
+        team: "日本",
+        role: "邊路突破",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kaoru_Mitoma_%282022%29.jpg/330px-Kaoru_Mitoma_%282022%29.jpg"
+      },
+      koulibaly: {
+        name: "Kalidou Koulibaly",
+        team: "塞內加爾",
+        role: "強力中衛",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Joueur_de_foot.jpg/330px-Joueur_de_foot.jpg"
+      },
+      saliba: {
+        name: "William Saliba",
+        team: "法國",
+        role: "中衛",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/1_william_saliba_arsenal_2025_%28cropped%29.jpg/330px-1_william_saliba_arsenal_2025_%28cropped%29.jpg"
+      },
+      haaland: {
         name: "Erling Haaland",
         team: "挪威",
-        tags: ["中鋒", "進球機器", "招牌對決"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Erling_Haaland_June_2025.jpg/960px-Erling_Haaland_June_2025.jpg",
-        text: "純粹的進球威脅，對法國那場尤其適合用球星對決來看。"
+        role: "中鋒",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Erling_Haaland_June_2025.jpg/960px-Erling_Haaland_June_2025.jpg"
       },
-      {
+      yamal: {
         name: "Lamine Yamal",
         team: "西班牙",
-        tags: ["超新星", "技術", "新世代"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Lamine_Yamal_in_2025.jpg/960px-Lamine_Yamal_in_2025.jpg",
-        text: "年紀輕但存在感很高，西班牙新世代最容易被朋友記住的人。"
+        role: "右路超新星",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Lamine_Yamal_in_2025.jpg/960px-Lamine_Yamal_in_2025.jpg"
       },
-      {
+      pedri: {
+        name: "Pedri",
+        team: "西班牙",
+        role: "控球中場",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pedri.jpg/330px-Pedri.jpg"
+      },
+      salah: {
         name: "Mohamed Salah",
         team: "埃及",
-        tags: ["明星", "非洲焦點", "邊路"],
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg",
-        text: "埃及最大牌球星，速度、終結和知名度都夠；比利時、紐西蘭、伊朗同組也有出線懸念。"
+        role: "右路內切",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg"
+      },
+      debruyne: {
+        name: "Kevin De Bruyne",
+        team: "比利時",
+        role: "傳球核心",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/330px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg"
+      },
+      modric: {
+        name: "Luka Modric",
+        team: "克羅埃西亞",
+        role: "節奏大師",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Ofrenda_de_la_Liga_y_la_Champions-57-L.Mill%C3%A1n_%2852109310843%29_%28Luka_Modri%C4%87%29.jpg/330px-Ofrenda_de_la_Liga_y_la_Champions-57-L.Mill%C3%A1n_%2852109310843%29_%28Luka_Modri%C4%87%29.jpg"
+      },
+      valverde: {
+        name: "Federico Valverde",
+        team: "烏拉圭",
+        role: "中場強度",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Federico_Valverde_2021_%28cropped%29.jpg/330px-Federico_Valverde_2021_%28cropped%29.jpg"
+      },
+      araujo: {
+        name: "Ronald Araujo",
+        team: "烏拉圭",
+        role: "中衛",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/FC_Red_Bull_Salzburg_gegen_CF_Barcelona_%28Testspiel_4._August_2021%29_45_%28cropped%29.jpg/330px-FC_Red_Bull_Salzburg_gegen_CF_Barcelona_%28Testspiel_4._August_2021%29_45_%28cropped%29.jpg"
+      },
+      pulisic: {
+        name: "Christian Pulisic",
+        team: "美國",
+        role: "邊路核心",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Christian_Pulisic_USMNT_v_Belgium_Mar_28_2026-105.jpg/330px-Christian_Pulisic_USMNT_v_Belgium_Mar_28_2026-105.jpg"
+      },
+      son: {
+        name: "Son Heung-min",
+        team: "南韓",
+        role: "反擊終結",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/330px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg"
+      },
+      wirtz: {
+        name: "Florian Wirtz",
+        team: "德國",
+        role: "中路創造",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Florian_Wirtz%2C_2022-07-31%2C_Saisoner%C3%B6ffnung_Bayer_04%2C_Leverkusen_%281%29_%28cropped%29.jpg/330px-Florian_Wirtz%2C_2022-07-31%2C_Saisoner%C3%B6ffnung_Bayer_04%2C_Leverkusen_%281%29_%28cropped%29.jpg"
+      },
+      musiala: {
+        name: "Jamal Musiala",
+        team: "德國",
+        role: "盤帶中場",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Jamal_Musiala_2022_%28cropped%29.jpg/330px-Jamal_Musiala_2022_%28cropped%29.jpg"
+      },
+      davies: {
+        name: "Alphonso Davies",
+        team: "加拿大",
+        role: "左路推進",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Alphonso_Davies_in_2022.jpg/330px-Alphonso_Davies_in_2022.jpg"
+      },
+      xhaka: {
+        name: "Granit Xhaka",
+        team: "瑞士",
+        role: "中場調度",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Granit_Xhaka_%28cropped%29.jpg/330px-Granit_Xhaka_%28cropped%29.jpg"
+      },
+      isak: {
+        name: "Alexander Isak",
+        team: "瑞典",
+        role: "中鋒跑位",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Alexander_Isak_56_%28cropped%29.jpg/330px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Alexander_Isak_56_%28cropped%29.jpg"
       }
-    ];
+    };
+
+    const teamAngles = {
+      "Mexico": { edge: "Santiago Gimenez 的禁區終結", brief: "墨西哥主場會把節奏拉很高，重點是第一波壓迫有沒有進球。", people: [] },
+      "South Africa": { edge: "Ronwen Williams 與南非低位防線", brief: "南非若能守住前 30 分鐘，反擊和定位球就會變成比賽主線。", people: [] },
+      "South Korea": { edge: "Son Heung-min 的反擊終結", brief: "南韓看 Son 從左路或中路反跑，抓對手壓上後的空間。", people: ["son"] },
+      "Czechia": { edge: "捷克高大防線與定位球", brief: "捷克通常不怕身體碰撞，角球、自由球會是最直接的武器。", people: [] },
+      "Canada": { edge: "Alphonso Davies 左路推進", brief: "加拿大要看 Davies 能不能把邊路一路推到前場，替前鋒製造空間。", people: ["davies"] },
+      "Bosnia": { edge: "波士尼亞支點與定位球", brief: "波士尼亞適合看中鋒支點、二點球與定位球衝擊。", people: [] },
+      "Bosnia and Herzegovina": { edge: "波士尼亞支點與定位球", brief: "波士尼亞適合看中鋒支點、二點球與定位球衝擊。", people: [] },
+      "Qatar": { edge: "Akram Afif 的前場拿球", brief: "卡達重點在前場核心能不能拿住球，讓比賽不要被對手完全壓住。", people: [] },
+      "Switzerland": { edge: "Granit Xhaka 中場調度", brief: "瑞士靠中場穩定度控制比賽節奏，Xhaka 是最容易看懂的開關。", people: ["xhaka"] },
+      "Brazil": { edge: "Vinicius 左路爆點與 Neymar 話題", brief: "巴西看一對一爆破；Neymar 若入選，話題性會比實際戰術角色更大。", people: ["vinicius", "neymar"] },
+      "Morocco": { edge: "Achraf Hakimi 右路攻守", brief: "摩洛哥的右路速度和低位防守很硬，適合看邊路攻防。", people: ["hakimi"] },
+      "Haiti": { edge: "海地速度反擊", brief: "海地若被壓著打，能不能用速度反擊製造一次高品質機會是關鍵。", people: [] },
+      "Scotland": { edge: "蘇格蘭中場硬度", brief: "蘇格蘭適合看對抗、二點球和禁區前的遠射機會。", people: [] },
+      "USA": { edge: "Christian Pulisic 邊路核心", brief: "美國看 Pulisic 的持球突破與前場壓迫，節奏會很快。", people: ["pulisic"] },
+      "United States": { edge: "Christian Pulisic 邊路核心", brief: "美國看 Pulisic 的持球突破與前場壓迫，節奏會很快。", people: ["pulisic"] },
+      "Paraguay": { edge: "巴拉圭防線對抗", brief: "巴拉圭的比賽通常先看防守強度，再看反擊是否能打到禁區。", people: [] },
+      "Australia": { edge: "澳洲高球與身體碰撞", brief: "澳洲適合看邊路傳中、定位球和高空球對抗。", people: [] },
+      "Turkiye": { edge: "土耳其前場創造力", brief: "土耳其年輕攻擊手能不能在肋部找到縫隙，是比賽的好看點。", people: [] },
+      "Türkiye": { edge: "土耳其前場創造力", brief: "土耳其年輕攻擊手能不能在肋部找到縫隙，是比賽的好看點。", people: [] },
+      "Germany": { edge: "Wirtz/Musiala 中路創造", brief: "德國看年輕中場在禁區前怎麼拆低位防守。", people: ["wirtz", "musiala"] },
+      "Curacao": { edge: "庫拉索低位防守", brief: "庫拉索重點是能不能用密集防守拖慢強隊節奏。", people: [] },
+      "Curaçao": { edge: "庫拉索低位防守", brief: "庫拉索重點是能不能用密集防守拖慢強隊節奏。", people: [] },
+      "Ivory Coast": { edge: "象牙海岸身體強度", brief: "象牙海岸的重點是中前場衝擊力與邊路速度。", people: [] },
+      "Ecuador": { edge: "厄瓜多中場壓迫", brief: "厄瓜多看中場壓迫和快速轉換，能不能把對手逼到失誤。", people: [] },
+      "Netherlands": { edge: "Virgil van Dijk 防線指揮", brief: "荷蘭看高大防線與邊翼衛推進，攻守轉換很清楚。", people: ["vandijk"] },
+      "Japan": { edge: "Mitoma 邊路突破與日本換位", brief: "日本看小組配合、邊路換位和反搶，熟球的人會覺得很細。", people: ["mitoma"] },
+      "Sweden": { edge: "Alexander Isak 禁區跑位", brief: "瑞典看 Isak 的跑位和高球支點，簡單但很有效。", people: ["isak"] },
+      "Tunisia": { edge: "突尼西亞防守密度", brief: "突尼西亞會努力把比賽變窄，讓對手很難舒服推進。", people: [] },
+      "Belgium": { edge: "Kevin De Bruyne 傳球線", brief: "比利時看 De Bruyne 能不能一腳直塞把比賽打開。", people: ["debruyne"] },
+      "Egypt": { edge: "Mohamed Salah 右路內切", brief: "埃及看 Salah 從右路切進來，其他人要替他拉開空間。", people: ["salah"] },
+      "Iran": { edge: "伊朗反擊與定位球", brief: "伊朗適合看防守後快速往前找前鋒，以及定位球二點。", people: [] },
+      "New Zealand": { edge: "紐西蘭空戰", brief: "紐西蘭重點是身材、高球和禁區內二點球。", people: [] },
+      "Spain": { edge: "Yamal 一對一、Pedri 控節奏", brief: "西班牙看控球如何把對方拉開，再交給邊路一對一。", people: ["yamal", "pedri"] },
+      "Cape Verde": { edge: "維德角首次大賽的防守反擊", brief: "維德角若能守住，就會用速度反擊製造冷門感。", people: [] },
+      "Saudi Arabia": { edge: "沙烏地快速壓迫", brief: "沙烏地重點是前場壓迫和轉換速度，能不能先把對手拖亂。", people: [] },
+      "Uruguay": { edge: "Valverde 強度與 Araujo 防守", brief: "烏拉圭看中場硬度、身體對抗和防線壓迫。", people: ["valverde", "araujo"] },
+      "France": { edge: "Mbappe 速度與 Saliba 防線", brief: "法國能慢也能快，最可怕的是一搶下球就找 Mbappe。", people: ["mbappe", "saliba"] },
+      "Senegal": { edge: "Koulibaly 領防與身體對抗", brief: "塞內加爾防線強度高，遇到強隊時很適合看前鋒怎麼被限制。", people: ["koulibaly"] },
+      "Iraq": { edge: "伊拉克整體防守", brief: "伊拉克重點是隊形距離和反擊第一腳能不能打準。", people: [] },
+      "Norway": { edge: "Haaland 禁區終結", brief: "挪威看 Haaland 怎麼卡中衛身位，半次機會就可能變進球。", people: ["haaland"] },
+      "Argentina": { edge: "Messi 前場串聯", brief: "阿根廷看 Messi 如何把中場和禁區前串起來，節奏會很有層次。", people: ["messi"] },
+      "Algeria": { edge: "阿爾及利亞邊路突擊", brief: "阿爾及利亞重點是邊路速度與反擊，能不能逼強隊回追。", people: [] },
+      "Austria": { edge: "奧地利高壓與中場跑動", brief: "奧地利看整隊壓迫和中場跑動，會讓比賽變得很累。", people: [] },
+      "Jordan": { edge: "約旦低位防守與反擊", brief: "約旦重點是守住禁區前，再用反擊偷一次機會。", people: [] },
+      "Portugal": { edge: "Bruno 傳球與 Ronaldo 禁區跑位", brief: "葡萄牙星味夠，真正要看的是中場供球和禁區終結連不連得起來。", people: ["bruno", "ronaldo"] },
+      "DRC": { edge: "剛果民主共和國身體對抗", brief: "DRC 重點是速度、身體和反擊縱深，能不能把強隊防線拉開。", people: [] },
+      "DR Congo": { edge: "剛果民主共和國身體對抗", brief: "DRC 重點是速度、身體和反擊縱深，能不能把強隊防線拉開。", people: [] },
+      "Uzbekistan": { edge: "烏茲別克整體紀律", brief: "烏茲別克看隊形和紀律，能不能把比賽拖成耐心戰。", people: [] },
+      "Colombia": { edge: "Luis Diaz 左路爆破", brief: "哥倫比亞重點是左路速度和反擊，一旦有空間會很危險。", people: [] },
+      "England": { edge: "Bellingham 前插與英格蘭邊鋒", brief: "英格蘭看中路前插和邊路一對一，球星很多但要看連動。", people: ["bellingham"] },
+      "Croatia": { edge: "Modric 控節奏", brief: "克羅埃西亞看 Modric 怎麼把比賽變慢，讓對手急起來。", people: ["modric"] },
+      "Ghana": { edge: "迦納速度與身體衝擊", brief: "迦納重點是轉換和對抗，能不能把比賽拉成開放式。", people: [] },
+      "Panama": { edge: "巴拿馬防守與反擊", brief: "巴拿馬重點是站穩隊形，再靠反擊和定位球找機會。", people: [] }
+    };
+
+    const matchInsights = {
+      "Mexico vs South Africa": {
+        people: [],
+        matchup: "Santiago Gimenez 衝禁區 vs Ronwen Williams 與南非防線",
+        why: "開幕戰重點不是只看誰比較強，是看墨西哥主場壓力能不能早早變成進球；南非如果撐住，後面就會變得很緊。"
+      },
+      "Brazil vs Morocco": {
+        people: ["vinicius", "hakimi", "neymar"],
+        matchup: "Vinicius 左路爆破 vs Achraf Hakimi 右路速度",
+        why: "這場最清楚的看點就是邊路。Vinicius 要衝 Hakimi 身後，Hakimi 也會反過來推巴西左路；Neymar 若入選則是話題加成。"
+      },
+      "Netherlands vs Japan": {
+        people: ["vandijk", "mitoma"],
+        matchup: "Virgil van Dijk 指揮高線 vs Mitoma 與日本邊路換位",
+        why: "日本不是只靠拚命，會用換位拉開空間；荷蘭則看 Van Dijk 怎麼指揮防線，不讓日本在肋部舒服接球。"
+      },
+      "France vs Senegal": {
+        people: ["mbappe", "koulibaly", "saliba"],
+        matchup: "Mbappe 的衝刺 vs Koulibaly 領導的塞內加爾防線",
+        why: "這是典型速度前鋒對強力中衛。法國一反擊就找 Mbappe，塞內加爾要靠身體對抗和協防把空間壓掉。"
+      },
+      "Argentina vs Algeria": {
+        people: ["messi"],
+        matchup: "Messi 禁區前串聯 vs 阿爾及利亞密集防守",
+        why: "阿根廷最值得看的是 Messi 不一定跑最多，但會把最後一腳傳球和節奏抓住；阿爾及利亞要用密集防守逼他遠離禁區。"
+      },
+      "Portugal vs DRC": {
+        people: ["bruno", "ronaldo"],
+        matchup: "Bruno Fernandes 供球 vs Ronaldo 禁區跑位與 DRC 身體對抗",
+        why: "葡萄牙不是只看 Ronaldo 有沒有進球，而是 Bruno 能不能把球送到最舒服的位置；DRC 會用身體和速度讓比賽不單純。"
+      },
+      "England vs Croatia": {
+        people: ["bellingham", "modric"],
+        matchup: "Bellingham 前插 vs Modric 控節奏",
+        why: "年輕衝擊力對老練節奏感。英格蘭想把比賽推快，克羅埃西亞則會用 Modric 把球留住、把節奏降下來。"
+      },
+      "Spain vs Cape Verde": {
+        people: ["yamal", "pedri"],
+        matchup: "Yamal 右路一對一 vs 維德角低位防線",
+        why: "西班牙會大量控球，真正好看的是 Yamal 什麼時候敢單挑，以及 Pedri 怎麼把防線引出來。"
+      },
+      "Argentina vs Austria": {
+        people: ["messi"],
+        matchup: "Messi 的節奏控制 vs 奧地利高壓跑動",
+        why: "奧地利會試著用壓迫讓阿根廷不舒服；如果 Messi 能第一時間轉身或分球，阿根廷就會直接打到壓迫身後。"
+      },
+      "England vs Ghana": {
+        people: ["bellingham"],
+        matchup: "Bellingham 中路前插 vs 迦納速度反擊",
+        why: "英格蘭星味多，但這場要看攻上去以後身後空間怎麼處理；迦納一有空間，會讓比賽突然變開。"
+      },
+      "Norway vs France": {
+        people: ["haaland", "mbappe", "saliba"],
+        matchup: "Haaland 搶點 vs Saliba/法國中衛；Mbappe 反跑 vs 挪威高大防線",
+        why: "這場就是招牌對決。Haaland 不需要很多觸球，Mbappe 也不需要很多空間，兩邊後衛任何一次站位錯都可能失球。"
+      },
+      "Uruguay vs Spain": {
+        people: ["yamal", "pedri", "valverde"],
+        matchup: "Yamal/Pedri 控球拆解 vs Valverde 的中場強度",
+        why: "西班牙想把球控到對手失位，烏拉圭會用強度把節奏打斷。這場適合看技術和硬度誰先壓過誰。"
+      },
+      "Colombia vs Portugal": {
+        people: ["bruno", "ronaldo"],
+        matchup: "Luis Diaz 左路反擊 vs 葡萄牙邊後衛；Bruno 傳球找 Ronaldo",
+        why: "葡萄牙會有控球優勢，但哥倫比亞反擊很有殺傷力。看點是葡萄牙壓上時，身後會不會被 Luis Diaz 打穿。"
+      },
+      "Jordan vs Argentina": {
+        people: ["messi"],
+        matchup: "Messi 禁區前最後一傳 vs 約旦低位密集防守",
+        why: "如果阿根廷需要搶小組排名，這場會變成破鐵桶練習；如果已經晉級，則適合輕鬆看 Messi 怎麼控制比賽。"
+      }
+    };
 
     const monthIndex = { June: 5, July: 6 };
     const weekdayIndex = { Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6 };
@@ -899,20 +1155,10 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
           venue: venueRaw.replace(/[,.]\s*$/, ""),
           stage: currentStage,
           group,
-          recommended: Boolean(recommendedNotes[title]),
-          note: recommendedNotes[title] || defaultNote(title, currentStage, group)
+          recommended: featuredMatches.includes(title)
         });
       });
       return rows;
-    }
-
-    function defaultNote(title, stage, group) {
-      if (stage !== "Group Stage") return "淘汰賽對戰待小組賽結束後確定，先把台灣時間留下來。";
-      if (title.includes("Brazil") || title.includes("Argentina") || title.includes("France") || title.includes("England") || title.includes("Portugal") || title.includes("Spain")) {
-        return "傳統強隊場次，適合看球星、看出線形勢。";
-      }
-      if (["A", "B", "D", "F", "I", "L"].includes(group)) return "小組排名可能很接近，適合追出線變化。";
-      return "一般小組賽，若支持其中一隊或時間剛好可以補看。";
     }
 
     const matches = parseMatches().sort((a, b) => new Date(a.utc) - new Date(b.utc));
@@ -954,49 +1200,81 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
       return `<span class="badge ${cls}">${label}</span>`;
     }
 
+    function uniquePeople(keys) {
+      return [...new Set(keys)].filter(key => playerProfiles[key]).slice(0, 4);
+    }
+
+    function teamInfo(team) {
+      return teamAngles[team] || {
+        edge: `${teamZh[team] || team} 的整體攻防`,
+        brief: "這場先看兩隊如何搶開局，誰能先把比賽帶到自己的節奏。",
+        people: []
+      };
+    }
+
+    function insightForMatch(match) {
+      if (matchInsights[match.title]) return matchInsights[match.title];
+      if (match.stage !== "Group Stage" || !match.title.includes(" vs ")) {
+        return {
+          people: [],
+          matchup: "對戰組合待定，先看賽程時間與球場位置。",
+          why: "淘汰賽真正的看點會在小組賽結束後才清楚：強隊路線、是否延長賽、以及哪邊核心球員體能更完整。"
+        };
+      }
+      const [home, away] = match.title.split(" vs ");
+      const homeInfo = teamInfo(home);
+      const awayInfo = teamInfo(away);
+      return {
+        people: uniquePeople([...(homeInfo.people || []), ...(awayInfo.people || [])]),
+        matchup: `${homeInfo.edge} vs ${awayInfo.edge}`,
+        why: `${homeInfo.brief} ${awayInfo.brief}`
+      };
+    }
+
+    function peopleStrip(people) {
+      const unique = uniquePeople(people);
+      if (!unique.length) return "";
+      return `<div class="match-people" aria-label="焦點人物">
+        ${unique.map(key => {
+          const profile = playerProfiles[key];
+          return `<div class="person" title="${profile.name}｜${profile.role}">
+            <span class="avatar"><img src="${profile.image}" alt="${profile.name} 真實照片" loading="lazy"></span>
+            <span><span>${profile.name}</span><small>${profile.role}</small></span>
+          </div>`;
+        }).join("")}
+      </div>`;
+    }
+
     function card(match, list = false) {
+      const insight = insightForMatch(match);
       return `
         <article class="match-card ${match.recommended ? "recommended" : ""} ${list ? "list-card" : ""}" id="match-${match.id}">
           <div class="match-top">
             ${badge(match)}
             <span class="match-no">#${String(match.id).padStart(3, "0")}</span>
           </div>
-          <div>
+          <div class="match-main">
             <h3 class="match-title">${match.titleZh}</h3>
             <div class="time">
               <strong>${taipeiFormatter.format(new Date(match.utc))}</strong>
               <span>GMT ${utcFormatter.format(new Date(match.utc))}｜主辦地時間 ${match.localTime}</span>
             </div>
           </div>
-          <div class="watch"><b>看點：</b>${match.note}<br>${match.venue}</div>
+          ${peopleStrip(insight.people)}
+          <div class="watch">
+            <div class="watch-line"><b>對位：</b>${insight.matchup}</div>
+            <div><b>看點：</b>${insight.why}</div>
+            <div class="venue">${match.venue}</div>
+          </div>
         </article>
       `;
     }
 
     function renderRecommended() {
-      const preferred = Object.keys(recommendedNotes);
-      const recommended = preferred
+      const recommended = featuredMatches
         .map(title => matches.find(match => match.title === title))
         .filter(Boolean);
       document.getElementById("recommended-grid").innerHTML = recommended.map(match => card(match)).join("");
-    }
-
-    function renderPlayers() {
-      document.getElementById("players-grid").innerHTML = players.map(player => `
-        <article class="player-card">
-          <div class="player-photo">
-            <img src="${player.image}" alt="${player.name} 真實照片" loading="lazy">
-          </div>
-          <div class="player-body">
-            <div class="tagline">
-              <span class="mini">${player.team}</span>
-              ${player.tags.map(tag => `<span class="mini">${tag}</span>`).join("")}
-            </div>
-            <h3>${player.name}</h3>
-            <p>${player.text}</p>
-          </div>
-        </article>
-      `).join("");
     }
 
     const filterRow = document.getElementById("filter-row");
@@ -1023,13 +1301,18 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
     }
 
     function searchable(match) {
+      const insight = insightForMatch(match);
+      const peopleNames = uniquePeople(insight.people).map(key => playerProfiles[key].name);
       return [
         match.title,
         match.titleZh,
         match.venue,
         match.stage,
         match.group,
-        stageZh(match.stage)
+        stageZh(match.stage),
+        insight.matchup,
+        insight.why,
+        ...peopleNames
       ].join(" ").toLowerCase();
     }
 
@@ -1060,7 +1343,6 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
     searchInput.addEventListener("input", renderAll);
 
     renderRecommended();
-    renderPlayers();
     renderFilters();
     renderAll();
   </script>
