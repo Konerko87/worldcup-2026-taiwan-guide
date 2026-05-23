@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 世界盃台灣觀賽指南</title>
+  <meta name="description" content="2026 世界盃台灣時間賽程、推薦場次、看點與球星介紹。">
+  <meta property="og:title" content="2026 世界盃台灣觀賽指南">
+  <meta property="og:description" content="推薦場、每一場賽程、台灣時間、看點與球星真圖。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://konerko87.github.io/worldcup-2026-taiwan-guide/">
+  <link rel="canonical" href="https://konerko87.github.io/worldcup-2026-taiwan-guide/">
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --ink: #151515;
+      --muted: #68625a;
+      --line: rgba(21, 21, 21, .12);
+      --paper: #fffdf8;
+      --paper-2: #f0efe8;
+      --green: #0f6b51;
+      --blue: #295f98;
+      --red: #b13d31;
+      --gold: #b47a1f;
+      --shadow: 0 18px 60px rgba(15, 31, 44, .12);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(15,107,81,.10), transparent 360px),
+        radial-gradient(circle at 8% 4%, rgba(177,61,49,.14), transparent 260px),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 30px 0 18px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background:
+        linear-gradient(90deg, transparent 47%, rgba(255,255,255,.8) 48% 52%, transparent 53%),
+        linear-gradient(0deg, transparent 47%, rgba(255,255,255,.8) 48% 52%, transparent 53%),
+        conic-gradient(from 35deg, var(--green), var(--blue), var(--red), var(--gold), var(--green));
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.7), 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+      gap: 28px;
+      align-items: end;
+      padding: 18px 0 16px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 780px;
+      color: #37322d;
+      font-size: clamp(17px, 2.4vw, 22px);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      min-height: 94px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.68);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 25px;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247,244,238,.92);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-top: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 0;
+      overflow-x: auto;
+    }
+
+    .tab-button,
+    .chip,
+    .match-action {
+      appearance: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab-button {
+      padding: 10px 16px;
+      font-weight: 800;
+    }
+
+    .tab-button[aria-selected="true"] {
+      color: #fff;
+      background: #151515;
+      border-color: #151515;
+    }
+
+    main { padding: 26px 0 46px; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin: 18px 0 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(25px, 3.4vw, 42px);
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .match-card,
+    .player-card,
+    .source-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,253,248,.88);
+      box-shadow: 0 1px 0 rgba(255,255,255,.7) inset;
+    }
+
+    .match-card {
+      padding: 16px;
+      min-height: 236px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .match-card.recommended {
+      background:
+        linear-gradient(135deg, rgba(15,107,81,.12), rgba(180,122,31,.10) 48%, rgba(255,253,248,.9));
+      box-shadow: var(--shadow);
+    }
+
+    .match-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      min-height: 42px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      background: var(--green);
+    }
+
+    .badge.group-b, .badge.group-f, .badge.group-j { background: var(--blue); }
+    .badge.group-c, .badge.group-g, .badge.group-k { background: var(--red); }
+    .badge.group-d, .badge.group-h, .badge.group-l { background: var(--gold); }
+    .badge.knockout { background: #303235; }
+
+    .match-no {
+      color: var(--muted);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .match-title {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .time {
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .time strong {
+      color: var(--ink);
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .watch {
+      margin: auto 0 0;
+      color: #38322c;
+      font-size: 14px;
+    }
+
+    .watch b { color: var(--ink); }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      margin: 18px 0;
+    }
+
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.82);
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .chip.active {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .match-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .list-card {
+      min-height: unset;
+      display: grid;
+      grid-template-columns: 92px minmax(180px, 1fr) minmax(160px, .8fr) minmax(220px, 1fr);
+      align-items: center;
+      gap: 14px;
+      padding: 13px 14px;
+    }
+
+    .list-card .match-title { font-size: 18px; }
+    .list-card .watch { margin: 0; }
+
+    .players {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .player-card {
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .player-photo {
+      aspect-ratio: 4 / 3;
+      background: var(--paper-2);
+      overflow: hidden;
+    }
+
+    .player-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .player-body {
+      padding: 14px;
+    }
+
+    .player-body h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .player-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tagline {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .mini {
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: var(--paper-2);
+      color: #48433c;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .source-box {
+      margin-top: 26px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-box strong { color: var(--ink); }
+    .source-box a { color: var(--blue); font-weight: 800; }
+
+    .empty {
+      display: none;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,.55);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid, .players { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .controls { grid-template-columns: 1fr; }
+      .list-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .list-card .match-top { min-height: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 22px, 1180px); }
+      header { padding-top: 18px; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .hero-meta, .grid, .players { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .match-card { min-height: 214px; }
+      .tabs { padding: 8px 0; }
+      .tab-button { flex: 1; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="topbar">
+      <div class="brand"><span class="mark" aria-hidden="true"></span> 2026 FIFA World Cup</div>
+      <div>台灣時間整理｜資料更新：2026-05-23</div>
+    </div>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">世界盃<br>朋友觀賽指南</h1>
+        <p class="lede">不用研究半天，直接看哪些場最值得約、每一場台灣時間幾點、有哪些球星和話題人物可以聊。</p>
+      </div>
+      <div class="hero-meta" aria-label="賽事摘要">
+        <div class="stat"><b>104</b><span>總場次，含小組賽與淘汰賽</span></div>
+        <div class="stat"><b>48</b><span>參賽隊伍，12 組小組賽</span></div>
+        <div class="stat"><b>6/12</b><span>台灣時間凌晨開幕戰</span></div>
+        <div class="stat"><b>7/20</b><span>台灣時間凌晨冠軍戰</span></div>
+      </div>
+    </section>
+  </header>
+
+  <nav class="tabs-wrap" aria-label="頁面分頁">
+    <div class="shell tabs" role="tablist">
+      <button class="tab-button" id="tab-recommended" role="tab" aria-controls="panel-recommended" aria-selected="true" data-tab="recommended">推薦場</button>
+      <button class="tab-button" id="tab-all" role="tab" aria-controls="panel-all" aria-selected="false" data-tab="all">每一場</button>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="panel active" id="panel-recommended" role="tabpanel" aria-labelledby="tab-recommended">
+      <div class="section-head">
+        <div>
+          <h2>先約這幾場</h2>
+          <p>以台灣朋友好聊、球星辨識度、對戰張力、時間相對能接受來排。深夜場仍保留，因為有些就是世界盃主菜。</p>
+        </div>
+      </div>
+      <div class="grid" id="recommended-grid"></div>
+
+      <div class="section-head" style="margin-top:34px">
+        <div>
+          <h2>球星與話題人物</h2>
+          <p>名單以觀賽辨識度整理；最終參賽名單仍以各國足協與 FIFA 公告為準。</p>
+        </div>
+      </div>
+      <div class="players" id="players-grid"></div>
+    </section>
+
+    <section class="panel" id="panel-all" role="tabpanel" aria-labelledby="tab-all">
+      <div class="section-head">
+        <div>
+          <h2>每一場賽程</h2>
+          <p>以下已轉成台灣時間。可以搜尋國家、城市、球場，也可以用分組篩選。</p>
+        </div>
+        <p id="match-count"></p>
+      </div>
+      <div class="controls">
+        <input class="search" id="search-input" type="search" placeholder="搜尋：Argentina、英格蘭、Dallas、Brazil..." aria-label="搜尋賽程">
+        <div class="filter-row" id="filter-row" aria-label="分組篩選"></div>
+      </div>
+      <div class="match-list" id="all-matches"></div>
+      <div class="empty" id="empty-state">找不到符合條件的場次。</div>
+    </section>
+
+    <aside class="source-box">
+      <strong>資料來源：</strong>
+      賽程與分組以 <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera 2026/5/7 完整賽程</a> 為主，並參考 <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA 官方賽程頁</a>。球員照片使用 Wikimedia/Wikipedia 公開圖片連結；照片版權依各原始頁面標示為準。
+    </aside>
+  </main>
+
+  <footer class="shell">
+    本頁是朋友觀賽用整理，不是 FIFA 官方網站。淘汰賽對戰與最終球員名單會隨賽事進行更新。
+  </footer>
+
+  <script>
+    const groups = {
+      A: ["Mexico", "South Africa", "South Korea", "Czechia"],
+      B: ["Canada", "Bosnia", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
+      C: ["Brazil", "Morocco", "Haiti", "Scotland"],
+      D: ["USA", "United States", "Paraguay", "Australia", "Turkiye", "Türkiye"],
+      E: ["Germany", "Curacao", "Curaçao", "Ivory Coast", "Ecuador"],
+      F: ["Netherlands", "Japan", "Sweden", "Tunisia"],
+      G: ["Belgium", "Egypt", "Iran", "New Zealand"],
+      H: ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+      I: ["France", "Senegal", "Iraq", "Norway"],
+      J: ["Argentina", "Algeria", "Austria", "Jordan"],
+      K: ["Portugal", "DRC", "DR Congo", "Uzbekistan", "Colombia"],
+      L: ["England", "Croatia", "Ghana", "Panama"]
+    };
+
+    const teamZh = {
+      "Mexico": "墨西哥",
+      "South Africa": "南非",
+      "South Korea": "南韓",
+      "Czechia": "捷克",
+      "Canada": "加拿大",
+      "Bosnia": "波士尼亞",
+      "Bosnia and Herzegovina": "波士尼亞",
+      "Qatar": "卡達",
+      "Switzerland": "瑞士",
+      "Brazil": "巴西",
+      "Morocco": "摩洛哥",
+      "Haiti": "海地",
+      "Scotland": "蘇格蘭",
+      "USA": "美國",
+      "United States": "美國",
+      "Paraguay": "巴拉圭",
+      "Australia": "澳洲",
+      "Turkiye": "土耳其",
+      "Türkiye": "土耳其",
+      "Germany": "德國",
+      "Curacao": "庫拉索",
+      "Curaçao": "庫拉索",
+      "Ivory Coast": "象牙海岸",
+      "Ecuador": "厄瓜多",
+      "Netherlands": "荷蘭",
+      "Japan": "日本",
+      "Sweden": "瑞典",
+      "Tunisia": "突尼西亞",
+      "Belgium": "比利時",
+      "Egypt": "埃及",
+      "Iran": "伊朗",
+      "New Zealand": "紐西蘭",
+      "Spain": "西班牙",
+      "Cape Verde": "維德角",
+      "Saudi Arabia": "沙烏地阿拉伯",
+      "Uruguay": "烏拉圭",
+      "France": "法國",
+      "Senegal": "塞內加爾",
+      "Iraq": "伊拉克",
+      "Norway": "挪威",
+      "Argentina": "阿根廷",
+      "Algeria": "阿爾及利亞",
+      "Austria": "奧地利",
+      "Jordan": "約旦",
+      "Portugal": "葡萄牙",
+      "DRC": "剛果民主共和國",
+      "DR Congo": "剛果民主共和國",
+      "Uzbekistan": "烏茲別克",
+      "Colombia": "哥倫比亞",
+      "England": "英格蘭",
+      "Croatia": "克羅埃西亞",
+      "Ghana": "迦納",
+      "Panama": "巴拿馬"
+    };
+
+    const scheduleRaw = `
+@stage Group Stage
+@date Thursday, June 11
+Mexico vs South Africa at 3pm (19:00 GMT) - Mexico City Stadium, Mexico City, Mexico
+South Korea vs Czechia at 10pm (02:00 GMT on Friday) - Estadio Guadalajara, Zapopan, Mexico
+@date Friday, June 12
+Canada vs Bosnia at 3pm (19:00 GMT) - Toronto Stadium, Toronto, Canada
+USA vs Paraguay at 9pm (01:00 GMT on Saturday) - Los Angeles Stadium, Los Angeles, US
+@date Saturday, June 13
+Qatar vs Switzerland at 3pm (19:00 GMT) - San Francisco Bay Area Stadium, San Francisco, US
+Brazil vs Morocco at 6pm (22:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Haiti vs Scotland at 9pm (01:00 GMT on Sunday) - Boston Stadium, Boston, US
+Australia vs Turkiye at 9pm (04:00 GMT on Sunday) - BC Place, Vancouver, Canada
+@date Sunday, June 14
+Germany vs Curacao at 1pm (17:00 GMT) - Houston Stadium, Houston, US
+Netherlands vs Japan at 4pm (20:00 GMT) - Dallas Stadium, Dallas, US
+Ivory Coast vs Ecuador at 7pm (23:00 GMT) - Philadelphia Stadium, Philadelphia, US
+Sweden vs Tunisia at 10pm (02:00 GMT on Monday) - Estadio Monterrey, Guadalupe, Mexico
+@date Monday, June 15
+Spain vs Cape Verde at 12pm (16:00 GMT) - Atlanta Stadium, Atlanta, US
+Belgium vs Egypt at 3pm (19:00 GMT) - BC Place, Vancouver, Canada
+Saudi Arabia vs Uruguay at 6pm (22:00 GMT) - Miami Stadium, Miami, US
+Iran vs New Zealand at 9pm (01:00 GMT on Tuesday) - Los Angeles Stadium, Los Angeles, US
+@date Tuesday, June 16
+France vs Senegal at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Iraq vs Norway at 6pm (22:00 GMT) - Boston Stadium, Boston, US
+Argentina vs Algeria at 9pm (01:00 GMT on Wednesday) - Kansas City Stadium, Kansas City, US
+Austria vs Jordan at midnight (04:00 GMT on Wednesday) - San Francisco Bay Area Stadium, San Francisco, US
+@date Wednesday, June 17
+Portugal vs DRC at 1pm (17:00 GMT) - Houston Stadium, Houston, US
+England vs Croatia at 4pm (20:00 GMT) - Dallas Stadium, Dallas, US
+Ghana vs Panama at 7pm (23:00 GMT) - Toronto Stadium, Toronto, Canada
+Uzbekistan vs Colombia at 10pm (02:00 GMT on Thursday) - Mexico City Stadium, Mexico City, Mexico
+@date Thursday, June 18
+Czechia vs South Africa at 12pm (16:00 GMT) - Atlanta Stadium, Atlanta, US
+Switzerland vs Bosnia at 3pm (19:00 GMT) - Los Angeles Stadium, Los Angeles, US
+Canada vs Qatar at 6pm (22:00 GMT) - BC Place, Vancouver, Canada
+Mexico vs South Korea at 9pm (01:00 GMT on Friday) - Estadio Guadalajara, Zapopan, Mexico
+@date Friday, June 19
+Scotland vs Morocco at 6pm (22:00 GMT) - Boston Stadium, Boston, US
+USA vs Australia at 3pm (19:00 GMT) - Seattle Stadium, Seattle, US
+Brazil vs Haiti at 9pm (00:30 GMT on Saturday) - Philadelphia Stadium, Philadelphia, US
+Turkiye vs Paraguay at midnight (03:00 GMT on Saturday) - San Francisco Bay Area Stadium, San Francisco, US
+@date Saturday, June 20
+Netherlands vs Sweden at 1pm (17:00 GMT) - Houston Stadium, Houston, US
+Germany vs Ivory Coast at 4pm (20:00 GMT) - Toronto Stadium, Toronto, Canada
+Ecuador vs Curacao at 8pm (03:00 GMT on Sunday) - Kansas City Stadium, Kansas City, US
+Tunisia vs Japan at midnight (04:00 GMT on Sunday) - Estadio Monterrey, Guadalupe, Mexico
+@date Sunday, June 21
+Spain vs Saudi Arabia at 12pm (16:00 GMT) - Atlanta Stadium, Atlanta, US
+Belgium vs Iran at 3pm (19:00 GMT) - Los Angeles Stadium, Los Angeles, US
+Uruguay vs Cape Verde at 6pm (22:00 GMT) - Miami Stadium, Miami, US
+New Zealand vs Egypt at 9pm (01:00 GMT on Monday) - BC Place, Vancouver, Canada
+@date Monday, June 22
+Argentina vs Austria at 1pm (17:00 GMT) - Dallas Stadium, Dallas, US
+France vs Iraq at 5pm (21:00 GMT) - Philadelphia Stadium, Philadelphia, US
+Norway vs Senegal at 8pm (00:00 GMT on Tuesday) - New York New Jersey Stadium, New Jersey, US
+Jordan vs Algeria at 11pm (03:00 GMT on Tuesday) - San Francisco Bay Area Stadium, San Francisco, US
+@date Tuesday, June 23
+Portugal vs Uzbekistan at 1pm (17:00 GMT) - Houston Stadium, Houston, US
+England vs Ghana at 4pm (20:00 GMT) - Boston Stadium, Boston, US
+Panama vs Croatia at 7pm (23:00 GMT) - Toronto Stadium, Toronto, Canada
+Colombia vs DRC at 10pm (02:00 GMT on Wednesday) - Estadio Guadalajara, Zapopan, Mexico
+@date Wednesday, June 24
+Switzerland vs Canada at 3pm (19:00 GMT) - BC Place, Vancouver, Canada
+Bosnia vs Qatar at 3pm (19:00 GMT) - Seattle Stadium, Seattle, US
+Scotland vs Brazil at 6pm (22:00 GMT) - Miami Stadium, Miami, US
+Morocco vs Haiti at 6pm (22:00 GMT) - Atlanta Stadium, Atlanta, US
+Czechia vs Mexico at 9pm (01:00 GMT on Thursday) - Mexico City Stadium, Mexico City, Mexico
+South Africa vs South Korea at 9pm (01:00 GMT on Thursday) - Estadio Monterrey, Guadalupe, Mexico
+@date Thursday, June 25
+Ecuador vs Germany at 4pm (20:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Curacao vs Ivory Coast at 4pm (20:00 GMT) - Philadelphia Stadium, Philadelphia, US
+Japan vs Sweden at 7pm (23:00 GMT) - Dallas Stadium, Dallas, US
+Tunisia vs Netherlands at 7pm (23:00 GMT) - Kansas City Stadium, Kansas City, US
+Turkiye vs USA at 10pm (02:00 GMT on Friday) - Los Angeles Stadium, Los Angeles, US
+Paraguay vs Australia at 10pm (02:00 GMT on Friday) - San Francisco Bay Area Stadium, San Francisco, US
+@date Friday, June 26
+Norway vs France at 3pm (19:00 GMT) - Boston Stadium, Boston, US
+Senegal vs Iraq at 3pm (19:00 GMT) - Toronto Stadium, Toronto, Canada
+Cape Verde vs Saudi Arabia at 8pm (00:00 GMT on Saturday) - Houston Stadium, Houston, US
+Uruguay vs Spain at 8pm (00:00 GMT on Saturday) - Estadio Guadalajara, Zapopan, Mexico
+Egypt vs Iran at 11pm (03:00 GMT on Saturday) - Seattle Stadium, Seattle, US
+New Zealand vs Belgium at 11pm (03:00 GMT on Saturday) - BC Place, Vancouver, Canada
+@date Saturday, June 27
+Panama vs England at 5pm (21:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Croatia vs Ghana at 5pm (21:00 GMT) - Philadelphia Stadium, Philadelphia, US
+Colombia vs Portugal at 7:30pm (23:30 GMT) - Miami Stadium, Miami, US
+DRC vs Uzbekistan at 7:30pm (23:30 GMT) - Atlanta Stadium, Atlanta, US
+Algeria vs Austria at 10pm (02:00 GMT on Sunday) - Kansas City Stadium, Kansas City, US
+Jordan vs Argentina at 10pm (02:00 GMT on Sunday) - Dallas Stadium, Dallas, US
+@stage Round of 32
+@date Sunday, June 28
+Round of 32 match at 3pm (19:00 GMT) - Los Angeles Stadium, Los Angeles, US
+@date Monday, June 29
+Round of 32 match at 1pm (19:00 GMT) - Houston Stadium, Houston, US
+Round of 32 match at 4:30pm (20:30 GMT) - Boston Stadium, Boston, US
+Round of 32 match at 9pm (01:00 GMT on Tuesday) - Estadio Monterrey, Guadalupe, Mexico
+@date Tuesday, June 30
+Round of 32 match at 1pm (17:00 GMT) - Dallas Stadium, Dallas, US
+Round of 32 match at 5pm (21:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Round of 32 match at 9pm (01:00 GMT on Wednesday) - Mexico City Stadium, Mexico City, Mexico
+@date Wednesday, July 1
+Round of 32 match at 12pm (16:00 GMT) - Atlanta Stadium, Atlanta, US
+Round of 32 match at 4pm (20:00 GMT) - Seattle Stadium, Seattle, US
+Round of 32 match at 8pm (20:00 GMT) - San Francisco Bay Area Stadium, San Francisco, US
+@date Thursday, July 2
+Round of 32 match at 3pm (19:00 GMT) - Los Angeles Stadium, Los Angeles, US
+Round of 32 match at 7pm (23:00 GMT) - Toronto Stadium, Toronto, Canada
+Round of 32 match at 11pm (03:00 GMT on Friday) - BC Place, Vancouver, Canada
+@date Friday, July 3
+Round of 32 match at 2pm (18:00 GMT) - Dallas Stadium, Dallas, US
+Round of 32 match at 6pm (22:00 GMT) - Miami Stadium, Miami, US
+Round of 32 match at 9:30pm (01:30 GMT on Saturday) - Kansas City Stadium, Kansas City, US
+@stage Round of 16
+@date Saturday, July 4
+Round of 16 match at 1pm (17:00 GMT) - Houston Stadium, Houston, US
+Round of 16 match at 5pm (21:00 GMT) - Philadelphia Stadium, Philadelphia, US
+@date Sunday, July 5
+Round of 16 match at 4pm (20:00 GMT) - New York New Jersey Stadium, New Jersey, US
+Round of 16 match at 8pm (00:00 GMT on Monday) - Mexico City Stadium, Mexico City, Mexico
+@date Monday, July 6
+Round of 16 match at 3pm (19:00 GMT) - Dallas Stadium, Dallas, US
+Round of 16 match at 8pm (00:00 GMT on Tuesday) - Seattle Stadium, Seattle, US
+@date Tuesday, July 7
+Round of 16 match at 12pm (16:00 GMT) - Atlanta Stadium, Atlanta, US
+Round of 16 match at 4pm (20:00 GMT) - BC Place, Vancouver, Canada
+@stage Quarterfinals
+@date Thursday, July 9
+First quarterfinal at 4pm (20:00 GMT) - Boston Stadium, Boston, US
+@date Friday, July 10
+Second quarterfinal at 3pm (19:00 GMT) - Los Angeles Stadium, Los Angeles, US
+@date Saturday, July 11
+Third quarterfinal at 5pm (20:00 GMT) - Miami Stadium, Miami, US
+Fourth quarterfinal at 9pm (01:00 GMT on Sunday) - Kansas City Stadium, Kansas City, US
+@stage Semifinals
+@date Tuesday, July 14
+First semifinal at 3pm (19:00 GMT) - Dallas Stadium, Dallas, US
+@date Wednesday, July 15
+Second semifinal at 3pm (19:00 GMT) - Atlanta Stadium, Atlanta, US
+@stage Third Place
+@date Saturday, July 18
+Bronze medal match at 5pm (21:00 GMT) - Miami Stadium, Miami, US
+@stage Final
+@date Sunday, July 19
+Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
+`;
+
+    const recommendedNotes = {
+      "Mexico vs South Africa": "開幕戰，墨西哥主場氣氛最滿。朋友不熟球也能看儀式感和第一場熱度。",
+      "Brazil vs Morocco": "巴西星味對上 2022 四強摩洛哥。Vinicius 是核心，Neymar 則是話題人物。",
+      "Netherlands vs Japan": "技術與紀律感都高，日本隊強度夠，適合想看亞洲隊挑戰歐洲強權。",
+      "France vs Senegal": "Mbappe 領銜的法國碰上身體素質很硬的非洲強隊，強度會很高。",
+      "Argentina vs Algeria": "衛冕軍登場，Messi 只要入選就是全世界焦點。",
+      "Portugal vs DRC": "Cristiano Ronaldo 的最後幾屆大賽話題，葡萄牙也有很完整的豪華陣容。",
+      "England vs Croatia": "英格蘭人氣高，Croatia 大賽經驗厚。Bellingham 對 Modric 這條線很好聊。",
+      "Spain vs Cape Verde": "西班牙新世代登場，Lamine Yamal 是最容易讓朋友記住的超新星。",
+      "Argentina vs Austria": "小組第二輪，通常開始牽動出線壓力；阿根廷人氣保證。",
+      "England vs Ghana": "英格蘭球星多，迦納速度與對抗性高，適合週末前後揪人看。",
+      "Norway vs France": "Haaland 對 Mbappe 等級的招牌對決，純看球星也值得。",
+      "Uruguay vs Spain": "南美硬度對西班牙控球，新舊世代都很有看點。",
+      "Colombia vs Portugal": "葡萄牙小組最有分量的一場，Colombia 的反擊與對抗會讓比賽不無聊。",
+      "Jordan vs Argentina": "阿根廷壓軸小組賽，可能牽動排名，也可能是看 Messi 的輕鬆場。"
+    };
+
+    const players = [
+      {
+        name: "Lionel Messi",
+        team: "阿根廷",
+        tags: ["傳奇", "衛冕軍", "話題保證"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg/960px-Lionel_Messi_White_House_2026_%283x4_cropped%29.jpg",
+        text: "就算已經不是體能巔峰，只要進入名單就是世界盃最大看點之一。朋友不熟足球，也會知道他是誰。"
+      },
+      {
+        name: "Kylian Mbappe",
+        team: "法國",
+        tags: ["速度", "門面", "冠軍熱門"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Picture_with_Mbapp%C3%A9_%28cropped_and_rotated%29.jpg",
+        text: "法國最容易決定比賽的人，反擊速度和禁區終結力都是頂級。看法國，先看他。"
+      },
+      {
+        name: "Cristiano Ronaldo",
+        team: "葡萄牙",
+        tags: ["巨星", "最後舞台", "流量"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/President_Donald_Trump_meets_with_Cristiano_Ronaldo_in_the_Oval_Office_%2854933344262%29_%28cropped_and_rotated%29.jpg",
+        text: "競技角色可能不再像巔峰期那麼吃重，但世界盃話題性仍然爆表；葡萄牙陣容本身也很強。"
+      },
+      {
+        name: "Jude Bellingham",
+        team: "英格蘭",
+        tags: ["中場核心", "年輕門面", "英格蘭"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg/960px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_%28cropped%29.jpg",
+        text: "英格蘭新世代的代表人物，能進球也能掌控節奏，是英格蘭能不能走遠的關鍵。"
+      },
+      {
+        name: "Vinicius Junior",
+        team: "巴西",
+        tags: ["爆點", "邊路", "巴西核心"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c6/2023_05_06_Final_de_la_Copa_del_Rey_-_52879242230_%28cropped%29.jpg",
+        text: "巴西最直接的突破點，速度和一對一會讓比賽突然變熱。朋友只看精華也會注意到他。"
+      },
+      {
+        name: "Neymar",
+        team: "巴西",
+        tags: ["話題人物", "需看最終名單", "聊天素材"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg",
+        text: "現在比較像流量與話題中心，不一定是巴西最可靠的競技核心；但只要名字出現，討論度一定高。"
+      },
+      {
+        name: "Erling Haaland",
+        team: "挪威",
+        tags: ["中鋒", "進球機器", "招牌對決"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Erling_Haaland_June_2025.jpg/960px-Erling_Haaland_June_2025.jpg",
+        text: "純粹的進球威脅，對法國那場尤其適合用球星對決來看。"
+      },
+      {
+        name: "Lamine Yamal",
+        team: "西班牙",
+        tags: ["超新星", "技術", "新世代"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Lamine_Yamal_in_2025.jpg/960px-Lamine_Yamal_in_2025.jpg",
+        text: "年紀輕但存在感很高，西班牙新世代最容易被朋友記住的人。"
+      },
+      {
+        name: "Mohamed Salah",
+        team: "埃及",
+        tags: ["明星", "非洲焦點", "邊路"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg",
+        text: "埃及最大牌球星，速度、終結和知名度都夠；比利時、紐西蘭、伊朗同組也有出線懸念。"
+      }
+    ];
+
+    const monthIndex = { June: 5, July: 6 };
+    const weekdayIndex = { Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6 };
+
+    function parseDateLine(value) {
+      const match = value.match(/([A-Za-z]+),\s+([A-Za-z]+)\s+(\d{1,2})/);
+      if (!match) return null;
+      return new Date(Date.UTC(2026, monthIndex[match[2]], Number(match[3])));
+    }
+
+    function nextDateForWeekday(base, weekdayName) {
+      if (!weekdayName) return new Date(base);
+      const target = weekdayIndex[weekdayName];
+      const date = new Date(base);
+      for (let i = 0; i < 8; i++) {
+        if (date.getUTCDay() === target) return date;
+        date.setUTCDate(date.getUTCDate() + 1);
+      }
+      return new Date(base);
+    }
+
+    function groupForTitle(title) {
+      const firstTeam = title.split(" vs ")[0];
+      for (const [group, teams] of Object.entries(groups)) {
+        if (teams.includes(firstTeam)) return group;
+      }
+      return "";
+    }
+
+    function zhTitle(title) {
+      if (!title.includes(" vs ")) return title
+        .replace("Round of 32 match", "32 強賽")
+        .replace("Round of 16 match", "16 強賽")
+        .replace("First quarterfinal", "八強賽 1")
+        .replace("Second quarterfinal", "八強賽 2")
+        .replace("Third quarterfinal", "八強賽 3")
+        .replace("Fourth quarterfinal", "八強賽 4")
+        .replace("First semifinal", "四強賽 1")
+        .replace("Second semifinal", "四強賽 2")
+        .replace("Bronze medal match", "季軍戰")
+        .replace("Final", "冠軍戰");
+      return title.split(" vs ").map(team => teamZh[team] || team).join(" vs ");
+    }
+
+    function parseMatches() {
+      let currentStage = "Group Stage";
+      let currentDate = null;
+      let matchNumber = 0;
+      const rows = [];
+
+      scheduleRaw.split("\n").map(line => line.trim()).filter(Boolean).forEach(line => {
+        if (line.startsWith("@stage")) {
+          currentStage = line.replace("@stage", "").trim();
+          return;
+        }
+        if (line.startsWith("@date")) {
+          currentDate = parseDateLine(line.replace("@date", "").trim());
+          return;
+        }
+        const parsed = line.match(/^(.*?)\s+at\s+(.*?)\s+\((\d{2}):(\d{2}) GMT(?: on ([A-Za-z]+))?\)\s+-\s+(.*)$/);
+        if (!parsed || !currentDate) return;
+        const [, titleRaw, localTime, hour, minute, weekdayName, venueRaw] = parsed;
+        const utcDate = nextDateForWeekday(currentDate, weekdayName);
+        utcDate.setUTCHours(Number(hour), Number(minute), 0, 0);
+        matchNumber += 1;
+        const title = titleRaw.replace("Turkiye", "Turkiye").trim();
+        const group = currentStage === "Group Stage" ? groupForTitle(title) : "";
+        rows.push({
+          id: matchNumber,
+          title,
+          titleZh: zhTitle(title),
+          localTime,
+          utc: utcDate.toISOString(),
+          venue: venueRaw.replace(/[,.]\s*$/, ""),
+          stage: currentStage,
+          group,
+          recommended: Boolean(recommendedNotes[title]),
+          note: recommendedNotes[title] || defaultNote(title, currentStage, group)
+        });
+      });
+      return rows;
+    }
+
+    function defaultNote(title, stage, group) {
+      if (stage !== "Group Stage") return "淘汰賽對戰待小組賽結束後確定，先把台灣時間留下來。";
+      if (title.includes("Brazil") || title.includes("Argentina") || title.includes("France") || title.includes("England") || title.includes("Portugal") || title.includes("Spain")) {
+        return "傳統強隊場次，適合看球星、看出線形勢。";
+      }
+      if (["A", "B", "D", "F", "I", "L"].includes(group)) return "小組排名可能很接近，適合追出線變化。";
+      return "一般小組賽，若支持其中一隊或時間剛好可以補看。";
+    }
+
+    const matches = parseMatches().sort((a, b) => new Date(a.utc) - new Date(b.utc));
+
+    const taipeiFormatter = new Intl.DateTimeFormat("zh-TW", {
+      timeZone: "Asia/Taipei",
+      month: "numeric",
+      day: "numeric",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    });
+
+    const utcFormatter = new Intl.DateTimeFormat("zh-TW", {
+      timeZone: "UTC",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    });
+
+    function stageZh(stage) {
+      return {
+        "Group Stage": "小組賽",
+        "Round of 32": "32 強",
+        "Round of 16": "16 強",
+        "Quarterfinals": "八強",
+        "Semifinals": "四強",
+        "Third Place": "季軍戰",
+        "Final": "冠軍戰"
+      }[stage] || stage;
+    }
+
+    function badge(match) {
+      const label = match.group ? `Group ${match.group}` : stageZh(match.stage);
+      const cls = match.group ? `group-${match.group.toLowerCase()}` : "knockout";
+      return `<span class="badge ${cls}">${label}</span>`;
+    }
+
+    function card(match, list = false) {
+      return `
+        <article class="match-card ${match.recommended ? "recommended" : ""} ${list ? "list-card" : ""}" id="match-${match.id}">
+          <div class="match-top">
+            ${badge(match)}
+            <span class="match-no">#${String(match.id).padStart(3, "0")}</span>
+          </div>
+          <div>
+            <h3 class="match-title">${match.titleZh}</h3>
+            <div class="time">
+              <strong>${taipeiFormatter.format(new Date(match.utc))}</strong>
+              <span>GMT ${utcFormatter.format(new Date(match.utc))}｜主辦地時間 ${match.localTime}</span>
+            </div>
+          </div>
+          <div class="watch"><b>看點：</b>${match.note}<br>${match.venue}</div>
+        </article>
+      `;
+    }
+
+    function renderRecommended() {
+      const preferred = Object.keys(recommendedNotes);
+      const recommended = preferred
+        .map(title => matches.find(match => match.title === title))
+        .filter(Boolean);
+      document.getElementById("recommended-grid").innerHTML = recommended.map(match => card(match)).join("");
+    }
+
+    function renderPlayers() {
+      document.getElementById("players-grid").innerHTML = players.map(player => `
+        <article class="player-card">
+          <div class="player-photo">
+            <img src="${player.image}" alt="${player.name} 真實照片" loading="lazy">
+          </div>
+          <div class="player-body">
+            <div class="tagline">
+              <span class="mini">${player.team}</span>
+              ${player.tags.map(tag => `<span class="mini">${tag}</span>`).join("")}
+            </div>
+            <h3>${player.name}</h3>
+            <p>${player.text}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    const filterRow = document.getElementById("filter-row");
+    const searchInput = document.getElementById("search-input");
+    let activeFilter = "all";
+
+    function renderFilters() {
+      const filters = [
+        ["all", "全部"],
+        ["recommended", "推薦"],
+        ["knockout", "淘汰賽"],
+        ...Object.keys(groups).map(group => [group, `Group ${group}`])
+      ];
+      filterRow.innerHTML = filters.map(([value, label]) =>
+        `<button class="chip ${value === activeFilter ? "active" : ""}" data-filter="${value}" type="button">${label}</button>`
+      ).join("");
+      filterRow.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          renderAll();
+          renderFilters();
+        });
+      });
+    }
+
+    function searchable(match) {
+      return [
+        match.title,
+        match.titleZh,
+        match.venue,
+        match.stage,
+        match.group,
+        stageZh(match.stage)
+      ].join(" ").toLowerCase();
+    }
+
+    function renderAll() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = matches.filter(match => {
+        const filterOk =
+          activeFilter === "all" ||
+          (activeFilter === "recommended" && match.recommended) ||
+          (activeFilter === "knockout" && match.stage !== "Group Stage") ||
+          match.group === activeFilter;
+        const searchOk = !query || searchable(match).includes(query);
+        return filterOk && searchOk;
+      });
+      document.getElementById("all-matches").innerHTML = filtered.map(match => card(match, true)).join("");
+      document.getElementById("match-count").textContent = `${filtered.length} / ${matches.length} 場`;
+      document.getElementById("empty-state").style.display = filtered.length ? "none" : "block";
+    }
+
+    document.querySelectorAll(".tab-button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-button").forEach(item => item.setAttribute("aria-selected", String(item === button)));
+        document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
+        document.getElementById(`panel-${button.dataset.tab}`).classList.add("active");
+      });
+    });
+
+    searchInput.addEventListener("input", renderAll);
+
+    renderRecommended();
+    renderPlayers();
+    renderFilters();
+    renderAll();
+  </script>
+</body>
+</html>
