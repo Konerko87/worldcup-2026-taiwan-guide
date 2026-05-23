@@ -439,6 +439,89 @@
       gap: 10px;
     }
 
+    .odds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .odds-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,253,248,.88);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .odds-card h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .odds-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .odds-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border-top: 1px solid rgba(21, 21, 21, .08);
+      padding-top: 10px;
+    }
+
+    .odds-team {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .odds-team b {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .odds-team span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .odds-price {
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .odds-price b {
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: #151515;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .odds-price span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .odds-note {
+      border: 1px solid rgba(180,122,31,.25);
+      border-radius: 8px;
+      background: rgba(180,122,31,.08);
+      padding: 12px;
+      color: #5f471f;
+      font-size: 13px;
+    }
+
     .list-card {
       min-height: unset;
       display: grid;
@@ -658,7 +741,7 @@
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .odds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .controls { grid-template-columns: 1fr; }
       .list-card {
         grid-template-columns: 1fr;
@@ -673,7 +756,7 @@
       .shell { width: min(100% - 22px, 1180px); }
       header { padding-top: 18px; }
       .topbar { align-items: flex-start; flex-direction: column; }
-      .hero-meta, .grid { grid-template-columns: 1fr; }
+      .hero-meta, .grid, .odds-grid { grid-template-columns: 1fr; }
       .section-head { display: block; }
       .match-card { min-height: 280px; }
       .tabs { padding: 8px 0; }
@@ -710,6 +793,7 @@
     <div class="shell tabs" role="tablist">
       <button class="tab-button" id="tab-recommended" role="tab" aria-controls="panel-recommended" aria-selected="true" data-tab="recommended">推薦場</button>
       <button class="tab-button" id="tab-all" role="tab" aria-controls="panel-all" aria-selected="false" data-tab="all">每一場</button>
+      <button class="tab-button" id="tab-odds" role="tab" aria-controls="panel-odds" aria-selected="false" data-tab="odds">分組賠率</button>
     </div>
   </nav>
 
@@ -740,9 +824,21 @@
       <div class="empty" id="empty-state">找不到符合條件的場次。</div>
     </section>
 
+    <section class="panel" id="panel-odds" role="tabpanel" aria-labelledby="tab-odds">
+      <div class="section-head">
+        <div>
+          <h2>分組 bet365 賠率</h2>
+          <p>以下為 bet365 公開頁「To Win Group」美式賠率，更新日：2026-05-23。用來看市場強弱排序與小組難度，不是投注建議。</p>
+        </div>
+      </div>
+      <div class="odds-note">賠率會隨市場變動；實際數字請以 bet365 即時頁面為準。負數代表熱門，正數越大代表市場預期越冷。</div>
+      <div class="odds-grid" id="odds-grid"></div>
+    </section>
+
     <aside class="source-box">
       <strong>資料來源：</strong>
       賽程與分組以 <a href="https://www.aljazeera.com/sports/2026/5/7/whats-the-full-match-schedule-groups-and-format-for-world-cup-2026" target="_blank" rel="noopener">Al Jazeera 2026/5/7 完整賽程</a> 為主，並參考 <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums" target="_blank" rel="noopener">FIFA 官方賽程頁</a>。球員照片使用 Wikimedia/Wikipedia 公開圖片連結；照片版權依各原始頁面標示為準。球員為觀賽焦點候選，實際出賽以最終名單與先發為準。
+      分組賠率取自 <a href="https://www.bet365.com/hub/en-us/football/football-competitions/world-cup" target="_blank" rel="noopener">bet365 World Cup 2026 Odds</a>，Group I 的 Iraq 補自 <a href="https://news.bet365.com/en-us/article/world-cup-group-i-odds/2026052215395751100" target="_blank" rel="noopener">bet365 Group I odds</a>；賠率會變動，僅供觀賽參考。
     </aside>
   </main>
 
@@ -833,6 +929,82 @@
       "Croatia": "克羅埃西亞",
       "Ghana": "迦納",
       "Panama": "巴拿馬"
+    };
+
+    const groupOddsUpdatedAt = "2026-05-23";
+    const groupOdds = {
+      A: [
+        { team: "Mexico", odds: "+110" },
+        { team: "Czechia", odds: "+175", sourceLabel: "UEFA Path D Winner" },
+        { team: "South Korea", odds: "+400" },
+        { team: "South Africa", odds: "+1200" }
+      ],
+      B: [
+        { team: "Switzerland", odds: "+100" },
+        { team: "Bosnia", odds: "+125", sourceLabel: "UEFA Path A Winner" },
+        { team: "Canada", odds: "+550" },
+        { team: "Qatar", odds: "+3300" }
+      ],
+      C: [
+        { team: "Brazil", odds: "-500" },
+        { team: "Morocco", odds: "+500" },
+        { team: "Scotland", odds: "+1200" },
+        { team: "Haiti", odds: "+10000" }
+      ],
+      D: [
+        { team: "USA", odds: "+137" },
+        { team: "Turkiye", odds: "+175", sourceLabel: "UEFA Path C Winner" },
+        { team: "Paraguay", odds: "+375" },
+        { team: "Australia", odds: "+700" }
+      ],
+      E: [
+        { team: "Germany", odds: "-350" },
+        { team: "Ecuador", odds: "+400" },
+        { team: "Ivory Coast", odds: "+700" },
+        { team: "Curacao", odds: "+10000" }
+      ],
+      F: [
+        { team: "Netherlands", odds: "-138" },
+        { team: "Japan", odds: "+300" },
+        { team: "Sweden", odds: "+450", sourceLabel: "UEFA Path B Winner" },
+        { team: "Tunisia", odds: "+900" }
+      ],
+      G: [
+        { team: "Belgium", odds: "-275" },
+        { team: "Egypt", odds: "+450" },
+        { team: "Iran", odds: "+600" },
+        { team: "New Zealand", odds: "+2000" }
+      ],
+      H: [
+        { team: "Spain", odds: "-500" },
+        { team: "Uruguay", odds: "+400" },
+        { team: "Saudi Arabia", odds: "+1600" },
+        { team: "Cape Verde", odds: "+5000" }
+      ],
+      I: [
+        { team: "France", odds: "-250" },
+        { team: "Norway", odds: "+275" },
+        { team: "Senegal", odds: "+800" },
+        { team: "Iraq", odds: "+4000", sourceLabel: "bet365 Group I 專頁補齊" }
+      ],
+      J: [
+        { team: "Argentina", odds: "-300" },
+        { team: "Austria", odds: "+450" },
+        { team: "Algeria", odds: "+550" },
+        { team: "Jordan", odds: "+4000" }
+      ],
+      K: [
+        { team: "Portugal", odds: "-250" },
+        { team: "Colombia", odds: "+250" },
+        { team: "DRC", odds: "+1100", sourceLabel: "IC Path 1 Winner" },
+        { team: "Uzbekistan", odds: "+3300" }
+      ],
+      L: [
+        { team: "England", odds: "-350" },
+        { team: "Croatia", odds: "+350" },
+        { team: "Ghana", odds: "+1000" },
+        { team: "Panama", odds: "+5000" }
+      ]
     };
 
     const scheduleRaw = `
@@ -1463,6 +1635,74 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
         .replaceAll("'", "&#039;");
     }
 
+    function canonicalTeam(team) {
+      return {
+        "Bosnia and Herzegovina": "Bosnia",
+        "United States": "USA",
+        "Türkiye": "Turkiye",
+        "Curaçao": "Curacao",
+        "DR Congo": "DRC"
+      }[team] || team;
+    }
+
+    function groupOddsForTeam(group, team) {
+      const canonical = canonicalTeam(team);
+      return (groupOdds[group] || []).find(row => row.team === canonical);
+    }
+
+    function impliedProbability(odds) {
+      const value = Number(String(odds).replace("+", ""));
+      if (!Number.isFinite(value) || value === 0) return "";
+      const probability = value > 0
+        ? 100 / (value + 100)
+        : Math.abs(value) / (Math.abs(value) + 100);
+      return `${(probability * 100).toFixed(1)}%`;
+    }
+
+    function oddsRowsHtml(group) {
+      return (groupOdds[group] || []).map(row => {
+        const sourceText = row.sourceLabel ? `｜備註：${row.sourceLabel}` : "";
+        return `<div class="odds-row">
+          <div class="odds-team">
+            <b>${escapeHtml(teamZh[row.team] || row.team)}</b>
+            <span>${escapeHtml(row.team + sourceText)}</span>
+          </div>
+          <div class="odds-price">
+            <b>${escapeHtml(row.odds)}</b>
+            <span>隱含 ${escapeHtml(impliedProbability(row.odds))}</span>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    function renderOdds() {
+      document.getElementById("odds-grid").innerHTML = Object.keys(groupOdds).map(group => `
+        <section class="odds-card">
+          <h3>Group ${escapeHtml(group)}</h3>
+          <p class="odds-meta">分組冠軍｜bet365 美式賠率｜更新 ${escapeHtml(groupOddsUpdatedAt)}</p>
+          ${oddsRowsHtml(group)}
+        </section>
+      `).join("");
+    }
+
+    function matchOddsLine(match) {
+      if (!match.group || !match.title.includes(" vs ")) return "";
+      const line = teamNames(match).map(team => {
+        const row = groupOddsForTeam(match.group, team);
+        return row ? `${teamZh[team] || team} ${row.odds}` : "";
+      }).filter(Boolean).join("｜");
+      return line ? `<div class="venue"><b>分組冠軍賠率：</b>${escapeHtml(line)}</div>` : "";
+    }
+
+    function detailOdds(group) {
+      if (!group || !groupOdds[group]) return "";
+      return `<div class="detail-block">
+        <h3>同組 bet365 賠率</h3>
+        <p class="odds-meta">To Win Group ${escapeHtml(group)}｜美式賠率｜更新 ${escapeHtml(groupOddsUpdatedAt)}</p>
+        ${oddsRowsHtml(group)}
+      </div>`;
+    }
+
     function shareUrlFor(match) {
       return `${location.origin}${location.pathname}#match-${match.id}`;
     }
@@ -1586,6 +1826,7 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
             <div class="watch-line"><b>對位：</b>${insight.matchup}</div>
             <div><b>看點：</b>${insight.why}</div>
             <div class="venue">${match.venue}</div>
+            ${matchOddsLine(match)}
             <div class="open-hint">點進專業介紹</div>
           </div>
         </article>
@@ -1645,6 +1886,7 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
         </div>
         <div class="detail-side">
           ${detailPeople(insight.people)}
+          ${detailOdds(match.group)}
           <div class="detail-block">
             <h3>適合誰看</h3>
             <p>${match.recommended ? "適合揪朋友一起看，因為有明確球星或對位故事，不需要很懂足球也能抓到主線。" : "適合想補完整賽程、追小組排名，或支持其中一隊的朋友。"}</p>
@@ -1772,6 +2014,7 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
 
     renderRecommended();
     renderFilters();
+    renderOdds();
     renderAll();
 
     const initialHash = location.hash.match(/^#match-(\d+)$/);
