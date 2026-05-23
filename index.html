@@ -728,7 +728,7 @@
       <div class="section-head">
         <div>
           <h2>每一場賽程</h2>
-          <p>以下主時間皆為台灣時間（UTC+8），下方附 GMT 與主辦地時間對照。可以搜尋國家、城市、球場，也可以用分組篩選。</p>
+          <p>以下所有顯示時間皆為台灣時間（UTC+8）。可以搜尋國家、城市、球場，也可以用分組篩選。</p>
         </div>
         <p id="match-count"></p>
       </div>
@@ -1387,15 +1387,6 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
       hourCycle: "h23"
     });
 
-    const utcFormatter = new Intl.DateTimeFormat("zh-TW", {
-      timeZone: "UTC",
-      month: "numeric",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23"
-    });
-
     function taiwanTimeLabel(date) {
       return `<span class="tz-note">台灣時間 UTC+8</span>${taipeiFormatter.format(date)}`;
     }
@@ -1588,7 +1579,6 @@ Final at 3pm (19:00 GMT) - New York New Jersey Stadium, New Jersey, US
             <h3 class="match-title">${match.titleZh}</h3>
             <div class="time">
               <strong>${taiwanTimeLabel(new Date(match.utc))}</strong>
-              <span>對照：GMT ${utcFormatter.format(new Date(match.utc))}｜主辦地時間 ${match.localTime}</span>
             </div>
           </div>
           ${peopleStrip(insight.people)}
